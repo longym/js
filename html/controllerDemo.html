@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="namesCtrl"> 
+
+<ul>
+  <li ng-repeat="x in names | orderBy:'country' ">
+    {{ x.name | lowercase  }}  ,   {{ x.country | uppercase }}
+  </li>
+</ul>
+{{ 250 | currency:"RMB ￥"}}
+<br>
+/*filter*/
+<br>
+{{
+
+[{"age": 20,"id": 10,"name": "iphone"},
+{"age": 12,"id": 11,"name": "sunm xing"},
+{"age": 44,"id": 12,"name": "test abc"}
+] | filter:{'name':'iphone'}
+}}
+
+<br>
+//limitTo
+<br>
+{{"1234567890" | limitTo :6}}
+<br>
+{{"1234567890" | limitTo :-4}}
+<br>
+
+ // 根id降序排
+{{ [{"age": 20,"id": 10,"name": "iphone"},
+{"age": 12,"id": 11,"name": "sunm xing"},
+{"age": 44,"id": 12,"name": "test abc"}
+] | orderBy:'id':true }}
+
+<span>{{1288323623006 | date:'medium'}}</span><br>
+<br>
+<span>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span><br>
+<span>{{'1288323623006' | date:'MM/dd/yyyy @ h:mm a'}}</span><br>
+<span>{{'1288323623006' | date:"MM/dd/yyyy 'at' h:mma"}}</span><br>
+</div>
+
+<script src="./js/namesController.js"></script>
+
+</body>
+</html>

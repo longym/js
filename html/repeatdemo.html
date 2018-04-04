@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Repeat demo</title>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+<p>Use ng-repeat to print array</p>
+<ul>
+	<li ng-repeat = "value in names">
+		{{value}}
+	</li>
+</ul>
+</div>
+</body>
+</html>

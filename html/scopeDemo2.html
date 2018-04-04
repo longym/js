@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Scope Demo two</title>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp" >
+<div ng-controller="myCtrl">
+	名字: <input  ng-model="name">
+	<h1>{{myf}} + {{allf}}</h1>
+</div>
+
+<div ng-controller="myCtrl2">
+	名字: <input  ng-model="name">
+	<h1>{{mys}} + {{alls}}</h1>
+</div>
+<script >
+	var app = angular.module("myApp",[]);
+
+	app.controller('myCtrl', ['$scope', '$rootScope',myCtrl]);
+	app.controller('myCtrl2', ['$scope','$rootScope', myCtrl2]);
+
+	function myCtrl($scope,$rootScope){
+	  $scope.myf = 1;
+ 	  $rootScope.allf = '全局1';	
+ 	  alert($rootScope.alls);
+	}
+
+	function myCtrl2($scope,$rootScope){
+	    $scope.mys = 2;
+	    $rootScope.alls = '全局2';
+	    alert($rootScope.allf);
+	    alert($rootScope.alls);
+	    }
+</script>
+</body>
+</html>
